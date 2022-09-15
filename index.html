@@ -1,28 +1,722 @@
----
-layout: default
-permalink: /
----
+<!DOCTYPE html>
+<html lang="en">
 
- {% include hero.html %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
- {% include about.html %}
 
- {% include statistic.html %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="author" content="Oleh Zasadnyy, GDG Lviv">
+    <meta name="description" content="GDG DevFest is a set of events all around the world">
+    <meta name="keywords" content="event, gdg, devfest, google, programming, android, chrome, developers, lviv">
+    <meta name="google-site-verification" content="b9imDOrFawXaBXCC4r3uJDdswSYcalD-wWpMYhFq-no">
 
- {% include latest-news.html %}
+    <link rel="canonical" href="java_dominicano_site_go_here"> <!-- Social: Twitter -->
 
- {% include rockstar-speakers.html %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@DevFest">
+    <meta name="twitter:title" content="GDG DevFest Season 2014">
+    <meta name="twitter:description" content="GDG DevFest is a set of events all around the world">
+    <meta name="twitter:image:src" content="http://gdg-x.github.io/zeppelin/img/seo/sharing-twitter.png">
 
- {% include location-map.html %}
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:title" content="JUG Dominicana">
+    <meta property="og:site_name" content="Java Dominicana">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://gdg-x.github.io">
+    <meta property="og:image" content="http://gdg-x.github.io/zeppelin/img/seo/sharing-facebook.png">
+    <meta property="og:description" content="GDG DevFest is a set of events all around the world">
 
- {% include venue.html %}
- 
- {% include twitter-feed.html %}
+    <title>JUG Dominicana</title>
 
- {% include partners.html %}
+    <link rel="shortcut icon" href="http://gdg-x.github.io/zeppelin/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="76x76"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="http://gdg-x.github.io/zeppelin/img/favicons/apple-touch-icon-57x57.png">
 
- {% include subscribe.html %}
+    <link rel="icon" type="image/png" href="http://gdg-x.github.io/zeppelin/img/favicons/favicon-196x196.png">
+    <link rel="icon" type="image/png" href="http://gdg-x.github.io/zeppelin/img/favicons/favicon-160x160.png">
+    <link rel="icon" type="image/png" href="http://gdg-x.github.io/zeppelin/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" href="http://gdg-x.github.io/zeppelin/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="http://gdg-x.github.io/zeppelin/img/favicons/favicon-16x16.png">
 
- {% include tickets.html %}
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="/zeppelin/img/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/zeppelin/img/favicons/browserconfig.xml">
+    <link href="css/main2.css" rel="stylesheet">
 
- {% include tickets-2.html %}
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/nodes.js"></script>
+    <script type="text/javascript">
+        function nodeBg() {
+            return new NodesJs({
+                id: 'nodes',
+                width: window.innerWidth,
+                height: window.innerHeight,
+                particleSize: 2,
+                lineSize: 2,
+                particleColor: [100, 100, 255, 0.4],
+                lineColor: [180, 50, 50],
+                backgroundFrom: [10, 0, 30],
+                backgroundTo: [30, 0, 10],
+                backgroundDuration: 5000,
+                nobg: false,
+                number: window.hasOwnProperty('orientation') ? 30 : 100,
+                speed: 20,
+                pointerCircleRadius: 250
+            });
+        }
+        $(function () {
+            var node = nodeBg();
+            
+            $(window).scroll(function () {
+                var content_height = $(document).height();
+                var content_scroll_pos = $(window).scrollTop();
+                var percentage_value = content_scroll_pos * 100 / content_height;
+                console.log(percentage_value);
+                if (percentage_value > 0) {
+                    $("#top-header").addClass("after-scroll")
+                    $("#logo-header>div.logo").addClass("logo-dark");
+                    $("#logo-header>div.logo").removeClass("logo-light");
+                } else {
+                    $("#top-header").removeClass("after-scroll");
+                    $("#logo-header>div.logo").addClass("logo-light");
+                    $("#logo-header>div.logo").removeClass("logo-dark");
+                }
+
+            });
+        })
+
+    </script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1079.0" data-gr-ext-installed="">
+    <div id="preloader" class="preloader" style="display: none;">
+        <div class="loader-gplus"></div>
+    </div>
+    <div id="st-container" class="st-container">
+        <div class="st-pusher" data-ol-has-click-handler="">
+            <div class="st-content">
+
+
+
+                <!-- Begin Hero Section -->
+                <section id="top-section-hero" class="top-section-hero top-section image-section">
+
+
+                    <div class="top-section" style="position:absolute; top: 0px; left: 0px; height: 100vh;">
+                        <canvas id="nodes"></canvas>
+                    </div>
+
+                    <header id="top-header" class="top-header">
+                        <div style="z-index:1">
+                            <div class="overlay white-solid"></div>
+                            <svg id="menu-trigger" class="menu-trigger icon icon-menu visible-xs" viewBox="0 0 32 32"
+                                data-ol-has-click-handler="">
+                                <use xlink:href="/zeppelin/img/sprites/sprites.svg#icon-menu"></use>
+                            </svg>
+                            <a href="http://gdg-x.github.io/zeppelin/" id="logo-header" class="logo-header">
+                                <div class="logo logo-light"
+                                    style="background-image: url(https://gdg-x.github.io/zeppelin/img/sprites/logos.svg)">
+                                </div>
+                                <!-- <img src="https://d1fdloi71mui9q.cloudfront.net/T1Fy2xMRduNTlpzDkNwA_f7S1Kmo72vmbcnTd"  /> -->
+                            </a>
+                            <nav class="st-menu st-effect" id="menu">
+                                <div class="logo-navbar logo logo-dark visible-xs"></div>
+                                <ul>
+                                    <li> <a class="current" href="#/">Home</a> </li>
+                                    <li> <a class="" href="#">Blog</a> </li>
+                                    <li> <a class="" href="#">Schedule</a> </li>
+                                    <li> <a class="" href="#">Eventos</a> </li>
+                                    <li> <a class="" href="#">Aprende</a> </li>
+                                    <li> <a class="" href="#">Hackathon</a> </li>
+                                </ul>
+                                <ul id="bottom-navlinks" class="bottom-navlinks visible-xs">
+                                    <li> <a href="http://bit.ly/dfua-c4p" target="_blank">Become a speaker</a> </li>
+                                </ul>
+
+                                <a href="http://bit.ly/dfua-c4p"
+                                    class="right-nav-button right-nav-button-hidden btn btn-primary waves-effect waves-button waves-light waves-float pull-right hidden-xs hidden-sm"
+                                    target="_blank"> Boton Oculto Header </a>
+                            </nav>
+                        </div>
+                    </header>
+
+                    <div class="content-wrapper">
+                        <div class="jumbotron">
+                            <div class="animated fadeInDown visible" data-animation="fadeInDown" data-delay="500">
+                                <h1>Java User Group | <img src="img/rd.png" width="64" /> Dominicana</h1>
+
+                                <p>Simply Dummy Text, Sub-Titulo</p>
+
+                                <a href="#" class="btn btn-primary waves-effect waves-button waves-light waves-float"
+                                    target="_blank">Boton 1</a>
+
+                                <a href="#" class="btn btn-primary waves-effect waves-button waves-light waves-float"
+                                    data-ol-has-click-handler="">Boton 2</a>
+                            </div>
+                        </div> <a href="#" class="explore" data-ol-has-click-handler=""> <svg
+                                class="icon icon-arrow-down" viewBox="0 0 32 32">
+                                <use xlink:href="img/sprites.svg#icon-arrow-down"></use>
+                            </svg></a>
+                    </div>
+
+
+
+                    <!-- <canvas id="nodes" style="z-index: -10"></canvas> -->
+
+                    <!-- <header id="top-header" class="top-header" style="z-index:-10">
+                        <div class="overlay white-solid"></div> 
+                        <svg id="menu-trigger"
+                            class="menu-trigger icon icon-menu visible-xs" viewBox="0 0 32 32"
+                            data-ol-has-click-handler="">
+                            <use xlink:href="/zeppelin/img/sprites/sprites.svg#icon-menu"></use>
+                        </svg> 
+                        <a href="http://gdg-x.github.io/zeppelin/" id="logo-header" class="logo-header">
+                            <div class="logo logo-light"></div>
+                        </a>
+                        <nav class="st-menu st-effect" id="menu">
+                            <div class="logo-navbar logo logo-dark visible-xs"></div>
+                            <ul>
+                                <li> <a class="current" href="#/">Home</a> </li>
+                                <li> <a class="" href="#">Blog</a> </li>
+                                <li> <a class="" href="#">Schedule</a> </li>
+                                <li> <a class="" href="#">Speakers</a> </li>
+                                <li> <a class="" href="#">Team</a> </li>
+                                <li> <a class="" href="#">Logistics</a> </li>
+                                <li> <a class="" href="#">Hackathon</a> </li>
+                            </ul>
+                            <ul id="bottom-navlinks" class="bottom-navlinks visible-xs">
+                                <li> <a href="http://bit.ly/dfua-c4p" target="_blank">Become a speaker</a> </li>
+                            </ul> 
+                            
+                            <a href="http://bit.ly/dfua-c4p"
+                                class="right-nav-button right-nav-button-hidden btn btn-primary waves-effect waves-button waves-light waves-float pull-right hidden-xs hidden-sm"
+                                target="_blank"> Boton Oculto Header </a>
+                        </nav>
+                    </header> -->
+
+
+
+
+
+                </section> <!-- End Hero Section -->
+
+                <!-- <section>
+                    <canvas id="nodes" ></canvas>
+                </section>
+                 -->
+
+                <!-- About Section -->
+                <section id="about" class="about">
+                    <div class="content-wrapper">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <h3>Lorem Ipsum</h3>
+                            <div class="row about-details">
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="animated fadeInDown" data-animation="fadeInDown">
+                                        <h5>Conference</h5> <img class="img-circle"
+                                            src="img/conference.jpeg" height="128"
+                                            width="128" alt="Conference">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="animated fadeInDown">
+                                        <h5>Workshops</h5> <img class="img-circle"
+                                            src="img/workshop.jpeg" height="128" width="128"
+                                            alt="Workshops">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix visible-xs"></div>
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="animated fadeInDown">
+                                        <h5>Hackathon</h5> <img class="img-circle"
+                                            src="img/hackathon.jpeg" height="128" width="128"
+                                            alt="Hackathon">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> <!-- End About Section -->
+                <!-- Begin Statistic Section -->
+                <section id="statistic" class="statistic image-section parallax"
+                    style="background-image: url(img/openjdk.webp);">
+                    <div class="overlay solid-overlay"></div>
+                    <div class="content-wrapper">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="col-md-3 col-xs-6">
+                                <div class="counter animated fadeInDown" data-animation="fadeInDown" data-delay="0">
+                                    <div class="stat"><span class="timer" data-from="0" data-to="350">350</span>+</div>
+                                    <div class="stat-info">attendees</div>
+                                    <hr>
+                                    <p class="small">from everywhere</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-6">
+                                <div class="counter animated fadeInDown" data-animation="fadeInDown" data-delay="500">
+                                    <div class="stat"><span class="timer" data-from="0" data-to="48">48</span>+</div>
+                                    <div class="stat-info">hours</div>
+                                    <hr>
+                                    <p class="small">of pure Google technologies</p>
+                                </div>
+                            </div>
+                            <div class="clearfix visible-xs"></div>
+                            <div class="col-md-3 col-xs-6">
+                                <div class="counter animated fadeInDown" data-animation="fadeInDown" data-delay="1000">
+                                    <div class="stat"><span class="timer" data-from="0" data-to="20">20</span>+</div>
+                                    <div class="stat-info">speakers</div>
+                                    <hr>
+                                    <p class="small">from country and beyond</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-6">
+                                <div class="counter animated fadeInDown" data-animation="fadeInDown" data-delay="1500">
+                                    <div class="stat"><span class="timer" data-from="0" data-to="3">3</span></div>
+                                    <div class="stat-info">parallel tracks</div>
+                                    <hr>
+                                    <p class="small">plus entertainment lounge</p>
+                                </div>
+                            </div>
+                            <div class="clearfix visible-xs"></div>
+                        </div>
+                    </div>
+                </section> <!-- End Statistic Section -->
+                <!-- Begin Latest News Section -->
+                <section id="latest-news" class="latest-news">
+                    <div class="content-wrapper">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <h3>Lorem Ipsum</h3>
+                            <article class="row">
+                                <div class="post col-md-6 col-sm-6 text-left animated fadeInDown"
+                                    data-animation="fadeInDown" data-delay="500">
+                                    <h6>Lorem Ipsum</h6>
+                                    <p class="post-body">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown printer took a galley of type and scrambled it to make a type specimen
+                                        book. It has survived not only five centuries
+                                        <a href="#">continuar leyendo</a>
+                                    </p>
+                                </div>
+                                <div class="post col-md-6 col-sm-6 text-left animated fadeInDown"
+                                    data-animation="fadeInDown" data-delay="500">
+                                    <h6>Lorem Ipsum</h6>
+                                    <p class="post-body">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown printer took a galley of type and scrambled it to make a type specimen
+                                        book. It has survived not only five centuries
+                                        <a href="#">continuar leyendo</a>
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section> <!-- End Latest News Section -->
+                <!-- Begin Rockstar Speakers Section -->
+                <section id="rockstar-speakers" class="rockstar-speakers image-section parallax"
+                    style="background-image: url(https://jconfdominicana.org/img/intro-bg.jpg);">
+                    <div class="overlay solid-overlay"></div>
+                    <div class="content-wrapper">
+                        <div class="col-lg-10 col-lg-offset-1 rockstar-speakers-list">
+                            <h3 id="rockstar-speaker-title">Rockstar speakers</h3>
+
+                            <div class="col-md-3 col-xs-6 rockstar-speakers-item" data-animation="fadeInUp"
+                                data-delay="0">
+                                <div class="rockstar-speaker">
+                                    <div class="flow-img img-circle rockstar-speaker-img"
+                                        style="background-image: url(img/ecabrerar.jpg)"></div>
+                                    <div class="name">Eudris Cabrera</div>
+                                    <div class="sub">Software Developer @ Ministerio de Hacienda</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-xs-6 rockstar-speakers-item" data-animation="fadeInUp"
+                                data-delay="500">
+                                <div class="rockstar-speaker">
+                                    <div class="flow-img img-circle rockstar-speaker-img"
+                                        style="background-image: url(img/psanders.jpeg)">
+                                    </div>
+                                    <div class="name">Pedro Sanders</div>
+                                    <div class="sub">Fonoster</div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix visible-xs"></div>
+                            <div class="col-md-3 col-xs-6 rockstar-speakers-item" data-animation="fadeInUp"
+                                data-delay="1000">
+                                <div class="rockstar-speaker">
+                                    <div class="flow-img img-circle rockstar-speaker-img"
+                                        style="background-image: url(https://randomuser.me/api/portraits/men/37.jpg)">
+                                    </div>
+                                    <div class="name">John Doe</div>
+                                    <div class="sub">Software Arch, Nasa</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-6 rockstar-speakers-item" data-animation="fadeInUp"
+                                data-delay="1500">
+                                <div class="rockstar-speaker">
+                                    <div class="flow-img img-circle rockstar-speaker-img"
+                                        style="background-image: url(https://randomuser.me/api/portraits/men/29.jpg)">
+                                    </div>
+                                    <div class="name">John Doe</div>
+                                    <div class="sub">JetBrains</div>
+                                </div>
+                            </div>
+                            <div class="clearfix visible-xs"></div>
+                            <!-- <div class="clearfix"></div> <span class="bordered"> <a
+                                    href="http://gdg-x.github.io/zeppelin/speakers/"
+                                    class="bottom-section-link waves-effect waves-button waves-light">See all
+                                    speakers</a> </span> -->
+                        </div>
+                    </div>
+                </section> <!-- End Rockstar Speakers Section -->
+
+                <!-- Venue Section -->
+                <section id="venue">
+                    <div class="content-wrapper">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <h3>Eventos</h3>
+                            <div class="row venue-row">
+                                <div class="col-md-8 col-sm-8 venue-col">
+                                    <div class="venue-elem-wrapper">
+                                        <div class="venue-elem image-section venue-big-elem venue-img animated fadeInDown"
+                                            data-animation="fadeIn" data-delay="0"
+                                            style="background-image: url(img/jconf-dominicana-2019-session-2.jpg)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 venue-col venue-small-col">
+                                    <div class="venue-elem-wrapper col-md-12 col-sm-12 col-xs-6">
+                                        <div class="venue-elem image-section venue-small-elem venue-img animated fadeInDown"
+                                            data-animation="fadeIn" data-delay="150"
+                                            style="background-image: url(img/jconf-dominicana-2019-josh-long.jpg)">
+                                        </div>
+                                    </div>
+                                    <div class="venue-elem-wrapper col-md-12 col-sm-12 col-xs-6">
+                                        <div class="venue-elem venue-small-elem venue-text animated fadeInDown"
+                                            data-animation="fadeIn" data-delay="0">
+                                            <h5>PUCMM University</h5>
+                                            <p>Lorem ipsum </p>
+                                            <a href="https://www.pucmm.edu.do/">PUCMM</a>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="venue-elem-wrapper col-md-12 col-sm-12 col-xs-6">
+                                        <div class="venue-elem image-section venue-small-elem venue-img animated fadeInDown"
+                                            data-animation="fadeIn" data-delay="0"
+                                            style="background-image: url(img/jconf-dominicana-2019-session-2.jpg)">
+                                        </div>
+                                    </div>
+                                    <div class="venue-elem-wrapper col-xs-6 visible-xs">
+                                        <div class="venue-elem image-section venue-small-elem venue-img animated fadeInDown"
+                                            data-animation="fadeIn" data-delay="0"
+                                            style="background-image: url(img/jconf-dominicana-2019-sessions.jpg)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> <!-- End Venue Section -->
+                <!-- Begin Twitter Feed Section -->
+                <section id="twitter-feed" class="twitter-feed image-section parallax"
+                    style="background-image: url(img/pucmm2.jpg);">
+                    <div class="overlay solid-overlay"></div>
+                    <div class="content-wrapper">
+                        <div class="col-md-8 col-md-offset-2"> <svg class="icon" viewBox="0 0 30 32">
+                                <!-- <use xlink:href="img/sprites.svg#icon-twitter"></use> -->
+                                <path class="path1"
+                                    d="M28.929 7.286q-1.196 1.75-2.893 2.982 0.018 0.25 0.018 0.75 0 2.321-0.679 4.634t-2.063 4.437-3.295 3.759-4.607 2.607-5.768 0.973q-4.839 0-8.857-2.589 0.625 0.071 1.393 0.071 4.018 0 7.161-2.464-1.875-0.036-3.357-1.152t-2.036-2.848q0.589 0.089 1.089 0.089 0.768 0 1.518-0.196-2-0.411-3.313-1.991t-1.313-3.67v-0.071q1.214 0.679 2.607 0.732-1.179-0.786-1.875-2.054t-0.696-2.75q0-1.571 0.786-2.911 2.161 2.661 5.259 4.259t6.634 1.777q-0.143-0.679-0.143-1.321 0-2.393 1.688-4.080t4.080-1.688q2.5 0 4.214 1.821 1.946-0.375 3.661-1.393-0.661 2.054-2.536 3.179 1.661-0.179 3.321-0.893z">
+                                </path>
+                            </svg>
+                            <h3>¿Que ha pasado? <a href="https://twitter.com/search?q=@javadominicano"
+                                    target="_blank">@javadominicano</a> </h3>
+                            <div id="tweets" class="tweets"></div>
+                        </div>
+                    </div>
+                </section> <!-- End Twitter Feed Section -->
+                <!-- Begin Partners Section -->
+                <section id="partners" class="partners">
+                    <div class="content-wrapper">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <h3>Patrocinadores</h3>
+                            <!-- <h5>Main organizer</h5> -->
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#" target="_blank"> <img
+                                            src="https://jconfdominicana.org/img/sponsors/jetbrains.png"
+                                            title="jetbrains" alt="jetbrains"> </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"> <img
+                                            src="https://jconfdominicana.org/img/sponsors/AvatharTech.png"
+                                            title="AvatharTech" alt="AvatharTech"> </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"> <img
+                                            src="https://jconfdominicana.org/img/supporters/pucmm-ect.png" title="pucmm"
+                                            alt="pucmm"> </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"> <img
+                                            src="https://jconfdominicana.org/img/supporters/cisc-logo.png" title="cisc"
+                                            alt="cisc"> </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"> <img
+                                            src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31"
+                                            title="microsoft" alt="microsoft"> </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <svg class="u30-oicn" xmlns="http://www.w3.org/2000/svg" width="231" height="30"
+                                            viewBox="0 0 231 30" preserveAspectRatio="xMinYMid">
+                                            <path
+                                                d="M99.61,19.52h15.24l-8.05-13L92,30H85.27l18-28.17a4.29,4.29,0,0,1,7-.05L128.32,30h-6.73l-3.17-5.25H103l-3.36-5.23m69.93,5.23V0.28h-5.72V27.16a2.76,2.76,0,0,0,.85,2,2.89,2.89,0,0,0,2.08.87h26l3.39-5.25H169.54M75,20.38A10,10,0,0,0,75,.28H50V30h5.71V5.54H74.65a4.81,4.81,0,0,1,0,9.62H58.54L75.6,30h8.29L72.43,20.38H75M14.88,30H32.15a14.86,14.86,0,0,0,0-29.71H14.88a14.86,14.86,0,1,0,0,29.71m16.88-5.23H15.26a9.62,9.62,0,0,1,0-19.23h16.5a9.62,9.62,0,1,1,0,19.23M140.25,30h17.63l3.34-5.23H140.64a9.62,9.62,0,1,1,0-19.23h16.75l3.38-5.25H140.25a14.86,14.86,0,1,0,0,29.71m69.87-5.23a9.62,9.62,0,0,1-9.26-7h24.42l3.36-5.24H200.86a9.61,9.61,0,0,1,9.26-7h16.76l3.35-5.25h-20.5a14.86,14.86,0,0,0,0,29.71h17.63l3.35-5.23h-20.6"
+                                                transform="translate(-0.02 0)"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <a href="http://gdg-x.github.io/zeppelin/assets/GDG_DevFest_Partnership.pdf"
+                                class="btn btn-primary waves-effect waves-button waves-light waves-float">Conviertete en
+                                Patrocinador</a>
+                        </div>
+                    </div>
+                </section> <!-- End Partners Section -->
+                <!-- Begin Subscribe Section -->
+                <section id="subscribe" class="subscribe image-section parallax"
+                    style="background-image: url(img/openjdk.webp);">
+                    <div class="overlay solid-overlay"></div>
+                    <div class="content-wrapper">
+                        <div class="col-lg-8 col-lg-offset-2 animated fadeInUp">
+                            <h3>Subscribete para estar al dia</h3>
+                            <div id="mc_embed_signup" class="col-lg-8 col-sm-8 col-lg-offset-2 col-sm-offset-2">
+                                <form
+                                    action="http://gdg.us5.list-manage1.com/subscribe/post?u=9fc8aa205b0521b5f05fc8e1e&amp;id=ae0fb459fc"
+                                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                    class="validate" target="_blank" novalidate="">
+                                    <div class="mc-field-group col-lg-9 col-sm-9 col-xs-12"> <i
+                                            class="email bordered required waves-effect waves-light waves-input-wrapper">
+                                            <input type="email" value="" name="EMAIL" class="waves-button-input"
+                                                id="mce-EMAIL" placeholder="your@email.com" autocomplete="off"> </i>
+                                    </div>
+                                    <div id="mce-responses" class="clear">
+                                        <div class="response" id="mce-error-response" style="display:none"></div>
+                                        <div class="response" id="mce-success-response" style="display:none"></div>
+                                    </div>
+                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style="position: absolute; left: -5000px;"> <input type="text"
+                                            name="b_9fc8aa205b0521b5f05fc8e1e_ae0fb459fc" tabindex="-1" value=""> </div>
+                                    <div class="mc-submit-group clear col-lg-3 col-sm-3 col-xs-12"> <i
+                                            class="button bordered required waves-effect waves-light waves-input-wrapper">
+                                            <input type="submit" class="waves-button-input" value="Submit"
+                                                name="subscribe" id="mc-embedded-subscribe"> </i> </div>
+                                </form> <span class="subscribe-info">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section> <!-- End Subscribe Section -->
+                <!-- Begin Tickets Section -->
+                <section id="tickets" class="tickets">
+                    <div class="content-wrapper">
+                        <div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
+                            <h3>Lista de Precios</h3>
+                            
+                            <div class="col-md-4 col-sm-4 pricing-col animated fadeInLeft" data-animation="fadeInLeft"
+                                data-delay="500">
+                                <div class="pricing-ribbon">-5%</div>
+                                <div class="pricing-header">
+                                    <p class="title">Early Bird</p>
+                                    <p class="price">350 <span class="currency">DOP</span></p>
+                                </div>
+                                <div class="pricing-content">
+                                    <img src="img/duke-tshirt.jpeg" width="295"/>
+                                    <ul>
+                                        <li>Lorem ipsum is simply</li>
+                                        <li>Dummy text of the printing</li>
+                                        <li>Typesetting industry</li>
+                                    </ul> 
+                                    <a class="button" href="http://dfua.ticketforevent.com/" target="_blank">Buy
+                                        Now</a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-4 pricing-col pricing-col-featured animated fadeInLeft"
+                                data-animation="fadeInDown" data-delay="0">
+                                <div class="pricing-ribbon">-20%</div>
+                                <div class="pricing-header">
+                                    <p class="title">Last Chance</p>
+                                    <p class="price">450 <span class="currency">DOP</span></p>
+                                </div>
+                                <div class="pricing-content">
+                                    <img src="img/duke-tshirt.jpeg" width="295"/>
+                                    <ul>
+                                        <li>Lorem ipsum is simply</li>
+                                        <li>Dummy text of the printing</li>
+                                        <li>Typesetting industry</li>
+                                    </ul> <span class="button disabled fallback">T-Shirt sales will begin on 1 October
+                                        2022 00:00</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 pricing-col animated fadeInLeft" data-animation="fadeInRight"
+                                data-delay="500">
+                                <div class="pricing-header">
+                                    <p class="title">Oferta Estudiantes</p>
+                                    <p class="price">200 <span class="currency">DOP</span></p>
+                                </div>
+                                <div class="pricing-content">
+                                    <img src="img/duke-tshirt.jpeg" width="295"/>
+                                    <ul>
+                                        <li>Lorem ipsum is simply</li>
+                                        <li>Dummy text of the printing</li>
+                                        <li>Typesetting industry</li>
+                                    </ul> <span class="button disabled">Sold Out</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Tickets Section -->
+                <!-- Begin Tickets 2 Section -->
+                <section id="tickets" class="tickets-2">
+                    <div class="content-wrapper">
+                        <div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
+                            <h3>Pricetable</h3>
+                            <div class="tickets-table row animated fadeInDown" data-animation="fadeInDown"
+                                data-delay="0">
+                                <div class="tickets-row animated fadeInDown" data-animation="fadeInDown" data-delay="0">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <p class="title">Early Bird</p> <span class="ticket-additional-info">Before
+                                                30 September 2014 23:59 or 150 tickets</span>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <p class="price">350 UAH</p>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12"> <span class="bordered dark-border button"> <a
+                                                    href="http://dfua.ticketforevent.com/"
+                                                    class="waves-effect waves-button" target="_blank">Buy Now</a>
+                                            </span> </div>
+                                    </div>
+                                </div>
+                                <div class="tickets-row animated fadeInDown" data-animation="fadeInDown"
+                                    data-delay="250">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <p class="title">Last Chance</p>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <p class="price">450 UAH</p>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <p class="ticket-fallback">Ticket sales will begin on 1 October 2014 00:00
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tickets-row animated fadeInDown" data-animation="fadeInDown"
+                                    data-delay="500">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <p class="title">Student</p> <span class="ticket-additional-info">Se requiere una identificación de estudiante válida en el registro de la conferencia. Sin identificación de estudiante en el registro, el boleto se cancelará sin reembolso</span> <span
+                                                class="ticket-additional-info">Antes del 23 de octubre de 2022 23:59 o 50
+                                                t-shirts</span>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <p class="price">200 UAH</p>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <p class="ticket-sold-out">Sold Out</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <span class="tickets-info">Tickets grant access to all conference sections, coffee
+                                brakes, lunch and party. Accommodation is NOT included in the ticket price.</span>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Tickets 2 Section -->
+
+                <!-- Begin Footer -->
+                <footer id="footer" class="footer">
+                    <div class="row">
+                        <div class="logo logo-footer logo-gray pull-left">Logo Java Dominicano Here</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6">
+                            <h5>Links</h5>
+                            <ul>
+                                <li><a href="https://jconfdominicana.org/" target="_blank">jconfdominicana</a></li>
+                                <li><a href="https://jugbaq.org/" target="_blank">JUGBAQ</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-xs-6">
+                            <h5>Contacts</h5>
+                            <ul>
+                                <li><a href="mailto:info@jconfdominicana.org"
+                                        target="_blank">info@jconfdominicana.org</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-xs-6">
+                            <h5>FAQ</h5>
+                            <ul>
+                                <li><a href="https://jconfdominicana.org/code-of-conduct.html">Code of Conduct</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <ul class="social-links">
+                               
+                                <li> <a href="https://twitter.com/JavaDominicano" target="_blank"> <svg
+                                            class="icon icon-twitter" viewBox="0 0 30 32">
+                                            <use xlink:href="img/sprites/sprites.svg#icon-twitter"></use>
+                                        </svg> </a> </li>
+                                <li> <a href="#" target="_blank"> <svg
+                                            class="icon icon-facebook" viewBox="0 0 30 32">
+                                            <use xlink:href="img/sprites/sprites.svg#icon-facebook"></use>
+                                        </svg> </a> </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </footer> <!-- End Footer -->
+            </div>
+        </div>
+    </div>
+
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>
